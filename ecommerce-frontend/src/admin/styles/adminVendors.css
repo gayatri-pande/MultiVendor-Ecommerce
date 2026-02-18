@@ -1,0 +1,65 @@
+.admin-vendors-page {
+  margin-top: 30px;
+}
+
+.vendor-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vendor-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.vendor-info h4 {
+  margin: 0;
+}
+
+.vendor-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.vendor-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.approve-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #198754;
+  color: white;
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background: #157347;
+}

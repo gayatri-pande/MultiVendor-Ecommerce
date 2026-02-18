@@ -1,0 +1,56 @@
+.vendor-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+/* 🔥 HARD RESET FOR VENDOR AREA ONLY */
+.vendor-dashboard-scope img {
+  width: auto !important;
+  max-width: 80px !important;
+  height: auto !important;
+  display: inline-block !important;
+}
+
+
+.vendor-main {
+  flex: 1;
+  padding: 30px;
+}
+.vendor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.vendor-header h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.vendor-status .status {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+.vendor-layout {
+  display: flex;
+  min-height: calc(100vh - 80px); /* navbar height */
+}
+
+.vendor-content {
+  flex: 1;
+  padding: 24px 32px;
+  background: #f5f7fb;
+}

@@ -1,0 +1,60 @@
+.vendor-register {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.vendor-card {
+  background: white;
+  padding: 32px;
+  width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.vendor-card h2 {
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.vendor-card label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.vendor-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  margin-bottom: 16px;
+}
+
+.vendor-card button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.vendor-card button:hover {
+  background: #1d4ed8;
+}
+
+.error {
+  color: #dc2626;
+  margin-bottom: 12px;
+}

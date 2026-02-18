@@ -1,0 +1,49 @@
+.order-details {
+  margin-top: 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  margin: 10px 0 20px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+}
+
+.status-badge.created {
+  background: #ff9800;
+}
+
+.status-badge.shipped {
+  background: #2196f3;
+}
+
+.status-badge.delivered {
+  background: #4caf50;
+}
+
+.order-items {
+  border-top: 1px solid #eee;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-item h4 {
+  margin-bottom: 4px;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.order-total {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 18px;
+}

@@ -1,0 +1,45 @@
+.category-wrapper {
+  margin: 20px 0 30px;
+  overflow-x: hidden;
+}
+
+/* Horizontal scroll container */
+.category-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none; 
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Category pill */
+.category-chip {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.category-chip:hover {
+  background: #f4f6f8;
+  border-color: #bbb;
+}
+
+/* Active category */
+.category-chip.active {
+  background: linear-gradient(135deg, #2874f0, #0059ff);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(0, 89, 255, 0.25);
+}

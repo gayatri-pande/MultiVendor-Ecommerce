@@ -1,0 +1,59 @@
+.vendor-orders-page {
+  padding: 20px;
+}
+
+.vendor-orders-table {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vendor-order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.status-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-badge.created {
+  background: #facc15; /* yellow */
+}
+
+.status-badge.shipped {
+  background: #3b82f6; /* blue */
+}
+
+.status-badge.delivered {
+  background: #22c55e; /* green */
+}
+
+.status-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+
+.status-btn:hover {
+  background: #000;
+}

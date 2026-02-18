@@ -1,0 +1,127 @@
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+/* CONTAINER */
+.navbar-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* LOGO */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* SEARCH */
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 42px 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  outline: none;
+  font-size: 14px;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+}
+
+/* SEARCH ICON */
+.search-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.search-btn:hover {
+  color: var(--primary);
+}
+
+/* BECOME VENDOR */
+.vendor-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.vendor-btn:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* SIGN UP */
+.signup-btn {
+  background: var(--primary);
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.signup-btn a {
+  color: white;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: var(--primary);
+}

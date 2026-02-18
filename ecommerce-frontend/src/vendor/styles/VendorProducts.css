@@ -1,0 +1,58 @@
+.vendor-products {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.vendor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.vendor-table th,
+.vendor-table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: left;
+}
+
+.vendor-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+.vendor-product-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.vendor-product-table td {
+  padding: 12px 8px;
+}
+
+.vendor-product-table th {
+  font-weight: 600;
+  color: #555;
+}
+
+.vendor-product-table button {
+  padding: 6px 12px;
+  border-radius: 4px;
+}
