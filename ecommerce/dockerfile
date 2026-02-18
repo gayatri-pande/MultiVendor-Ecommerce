@@ -1,0 +1,9 @@
+# Use official Java image
+FROM eclipse-temurin:17-jdk
+
+# Copy jar file
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+
+# Run application
+ENTRYPOINT ["java","-jar","/app.jar"]
