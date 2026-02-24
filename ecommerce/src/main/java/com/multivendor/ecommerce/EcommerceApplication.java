@@ -23,18 +23,17 @@ public class EcommerceApplication {
 	                              PasswordEncoder passwordEncoder) {
 	    return args -> {
 
-	        if (userRepository.findByEmail("admin@multivendor.com").isEmpty()) {
+	        User admin = userRepository.findByEmail("admin@multivendor.com")
+	                .orElse(new User());
 
-	            User admin = new User();
-	            admin.setName("Admin");
-	            admin.setEmail("admin@multivendor.com");
-	            admin.setPassword(passwordEncoder.encode("admin123"));
-	            admin.setRole(Role.ADMIN);
+	        admin.setName("Admin");
+	        admin.setEmail("admin@multivendor.com");
+	        admin.setPassword(passwordEncoder.encode("admin123"));
+	        admin.setRole(Role.ADMIN);
 
-	            userRepository.save(admin);
+	        userRepository.save(admin);
 
-	            System.out.println("Admin user created");
-	        }
+	        System.out.println("Admin user ensured!");
 	    };
 	}
 
