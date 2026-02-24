@@ -1,5 +1,5 @@
 import { useProducts } from "../../context/ProductContext";
-import "../styles/categoryFilter.css";
+import "../styles/CategoryFilter.css";
 
 const CategoryFilter = () => {
   const {
