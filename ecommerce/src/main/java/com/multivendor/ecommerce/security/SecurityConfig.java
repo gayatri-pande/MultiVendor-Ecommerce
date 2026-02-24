@@ -64,15 +64,11 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        // VERY IMPORTANT: use allowedOriginPatterns (not allowedOrigins)
-        config.setAllowedOriginPatterns(List.of(
-                "http://localhost:5173",
-                "https://*.up.railway.app"
-        ));
-
+        // 🔥 TEMPORARY: allow everything
+        config.setAllowedOriginPatterns(List.of("*"));
         config.setAllowedMethods(List.of("*"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);   // important when using "*"
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
