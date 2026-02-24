@@ -84,7 +84,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOrigins(List.of("http://localhost:5173",
-        	    "https://your-frontend-domain.up.railway.app"));
+        	    "https://your-frontend-domain.up.railway.app",
+        	    "https://selfless-generosity.up.railway.app"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
