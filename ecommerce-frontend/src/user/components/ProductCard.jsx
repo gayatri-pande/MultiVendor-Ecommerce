@@ -5,7 +5,7 @@ import { useCart } from "../../context/CartContext";
 import "../styles/product.css";
 
 const ProductCard = ({ product }) => {
-  const backendUrl = "https://multivendor-ecommerce-production.up.railway.app";
+  const backendUrl = "http://localhost:8080";
   const { addToCart } = useCart();
 
   const [loaded, setLoaded] = useState(false);
@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
       
-      <Link to={`/api/product/${product.id}`} className="product-link">
+      <Link to={`/product/${product.id}`} className="product-link">
         <div className="image-wrapper">
           {!loaded && (
             <img

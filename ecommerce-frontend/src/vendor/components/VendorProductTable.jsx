@@ -7,7 +7,7 @@ const VendorProductTable = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await api.get("/api/products/my");
+      const res = await api.get("/products/my");
       setProducts(res.data);
     } catch (err) {
       console.error("Failed to load products");
@@ -20,7 +20,7 @@ const VendorProductTable = () => {
     if (!window.confirm("Delete this product?")) return;
 
     try {
-      await api.delete(`/api/products/${id}`);
+      await api.delete(`/products/${id}`);
       setProducts((prev) => prev.filter((p) => p.id !== id));
     } catch {
       alert("Delete failed");
@@ -56,7 +56,7 @@ const VendorProductTable = () => {
               <tr key={p.id}>
                 <td>
                   <img
-                    src={`https://multivendor-ecommerce-production.up.railway.app${p.imageUrl}`}
+                    src={`http://localhost:8080${p.imageUrl}`}
                     alt={p.name}
                   />
                 </td>

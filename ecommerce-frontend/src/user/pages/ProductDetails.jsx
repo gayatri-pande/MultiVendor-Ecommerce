@@ -9,11 +9,11 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [imgError, setImgError] = useState(false);
 
-  const backendUrl = "https://multivendor-ecommerce-production.up.railway.app/api/products";
+  const backendUrl = "http://localhost:8080";
 
   useEffect(() => {
     api
-      .get(`/api/products/${id}`)
+      .get(`/products/${id}`)
       .then((res) => setProduct(res.data))
       .finally(() => setLoading(false));
   }, [id]);

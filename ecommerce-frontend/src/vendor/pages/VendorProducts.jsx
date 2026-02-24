@@ -13,7 +13,7 @@ const navigate = useNavigate();
 
   const fetchProducts = async () => {
     try {
-      const res = await api.get("/api/products/my");
+      const res = await api.get("/products/my");
       setProducts(res.data);
     } catch (err) {
       setError("Failed to load products");
@@ -31,7 +31,7 @@ const navigate = useNavigate();
       return;
 
     try {
-      await api.delete(`/api/products/${id}`);
+      await api.delete(`/products/${id}`);
       setProducts(products.filter((p) => p.id !== id));
     } catch (err) {
       alert("Failed to delete product");
@@ -70,7 +70,7 @@ const navigate = useNavigate();
               <tr key={product.id}>
                 <td>
                   <img
-                    src={`https://multivendor-ecommerce-production.up.railway.app${product.imageUrl}`}
+                    src={`http://localhost:8080${product.imageUrl}`}
                     alt={product.name}
                     className="vendor-product-img"
                   />

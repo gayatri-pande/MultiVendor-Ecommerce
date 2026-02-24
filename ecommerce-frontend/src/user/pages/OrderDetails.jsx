@@ -9,7 +9,7 @@ const OrderDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get(`/api/orders/${id}`)
+    api.get(`/orders/${id}`)
       .then(res => setOrder(res.data))
       .finally(() => setLoading(false));
   }, [id]);

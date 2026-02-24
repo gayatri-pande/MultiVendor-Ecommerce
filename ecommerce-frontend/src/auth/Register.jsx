@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await api.post("/api/users/register", {
+      await api.post("/users/register", {
         name,
         email,
         password,

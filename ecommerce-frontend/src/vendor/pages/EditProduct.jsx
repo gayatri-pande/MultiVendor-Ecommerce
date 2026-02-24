@@ -18,8 +18,8 @@ const EditProduct = () => {
   useEffect(() => {
     const loadData = async () => {
       const [productRes, categoryRes] = await Promise.all([
-        api.get(`/api/products/${id}`),
-        api.get("/api/categories"),
+        api.get(`/products/${id}`),
+        api.get("/categories"),
       ]);
 
       const product = productRes.data;
@@ -39,7 +39,7 @@ const EditProduct = () => {
 
     try {
       setLoading(true);
-      await api.put(`/api/products/${id}`, {
+      await api.put(`/products/${id}`, {
         name,
         price,
         stock,

@@ -18,24 +18,7 @@ public class EcommerceApplication {
 	}
 
 	
-	@Bean
-	CommandLineRunner createAdmin(UserRepository userRepository,
-	                              PasswordEncoder passwordEncoder) {
-	    return args -> {
-
-	        User admin = userRepository.findByEmail("admin@multivendor.com")
-	                .orElse(new User());
-
-	        admin.setName("Admin");
-	        admin.setEmail("admin@multivendor.com");
-	        admin.setPassword(passwordEncoder.encode("admin123"));
-	        admin.setRole(Role.ADMIN);
-
-	        userRepository.save(admin);
-
-	        System.out.println("Admin user ensured!");
-	    };
-	}
+	
 
 }
 

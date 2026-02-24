@@ -13,7 +13,7 @@ const VendorOrderRow = ({ item, refreshOrders }) => {
 
     try {
       await api.put(
-        `/api/vendor/orders/${item.orderItemId}/status`,
+        `/vendor/orders/${item.orderItemId}/status`,
         { status: nextStatus }
       );
       refreshOrders(); 

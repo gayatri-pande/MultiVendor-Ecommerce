@@ -6,7 +6,7 @@ const CartItem = ({ item }) => {
   return (
     <div className="cart-item">
       <img
-        src={`https://multivendor-ecommerce-production.up.railway.app${item.imageUrl}`}
+        src={`http://localhost:8080${item.imageUrl}`}
         alt={item.name}
       />
 

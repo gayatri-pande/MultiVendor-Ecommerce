@@ -39,7 +39,7 @@ const VendorRegister = () => {
       setError("");
 
       await api.post(
-        "/api/vendors/register",
+        "/vendors/register",
         { shopName },
         {
           headers: {

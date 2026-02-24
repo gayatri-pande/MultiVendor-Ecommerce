@@ -10,7 +10,7 @@ const VendorOrders = () => {
   const fetchVendorOrders = async () => {
     try {
       // const res = await api.get("/vendor");
-       const res = await api.get("/api/vendor/orders");
+       const res = await api.get("/vendor/orders");
       setOrders(res.data);
     } catch (err) {
       console.error("Failed to load vendor orders");

@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,61 +28,44 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
-
-           
-
-            .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
 
             .authorizeHttpRequests(auth -> auth
 
-                // VERY IMPORTANT: Allow all preflight requests
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            	    // 🔓 PUBLIC ENDPOINTS
+            	    .requestMatchers(
+            	        "/api/auth/**",
+            	        "/api/products",
+            	        "/api/products/*",
+            	        "/api/categories",
+            	        "/images/**"
+            	    ).permitAll()
 
-                // Public APIs
-                .requestMatchers(
-                        "/api/auth/**",
-                        "/api/products/**",
-                        "/api/categories/**",
-                        "/images/**",
-                        "/api/users/**"
-                ).permitAll()
+            	    // 👤 AUTHENTICATED USERS
+            	    .requestMatchers(
+            	        "/api/vendors/**",
+            	        "/api/orders/**"
+            	    ).authenticated()
 
-                // Everything else requires authentication
-                .anyRequest().authenticated()
-            )
+            	    // 🧑‍💼 VENDOR ONLY
+            	    .requestMatchers("/api/vendor/**").hasAuthority("VENDOR")
 
+            	    // 🛠 ADMIN ONLY
+            	    .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+
+            	    // Everything else
+            	    .anyRequest().authenticated()
+            	)
+
+
+           
             .addFilterBefore(
-                    jwtAuthenticationFilter,
-                    UsernamePasswordAuthenticationFilter.class
+                jwtAuthenticationFilter,
+                UsernamePasswordAuthenticationFilter.class
             );
 
         return http.build();
-    }
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-
-        CorsConfiguration config = new CorsConfiguration();
-
-        // Allow Railway + localhost
-        config.setAllowedOriginPatterns(List.of(
-                "http://localhost:5173",
-                "https://*.up.railway.app"
-        ));
-
-        config.setAllowedMethods(List.of("*"));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(false); // IMPORTANT
-
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
-
-        source.registerCorsConfiguration("/**", config);
-
-        return source;
     }
 
     @Bean
@@ -96,5 +77,21 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+
+        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+
+        return source;
     }
 }
