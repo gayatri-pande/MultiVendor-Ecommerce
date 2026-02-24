@@ -1,4 +1,4 @@
-import "../styles/vendorPending.css";
+import "../styles/VendorPending.css";
 import { useVendor } from "../../context/VendorContext";
 
 const VendorPending = () => {
