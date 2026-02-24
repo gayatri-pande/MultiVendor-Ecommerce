@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,21 +31,25 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
+
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+
+            .sessionManagement(session ->
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            )
 
             .authorizeHttpRequests(auth -> auth
 
-                // Allow all preflight requests
+                // VERY IMPORTANT: Allow all preflight requests
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                // Public endpoints
+                // Public APIs
                 .requestMatchers(
                         "/api/auth/**",
                         "/api/products/**",
                         "/api/categories/**",
                         "/images/**",
                         "/api/users/**"
-                 
                 ).permitAll()
 
                 // Everything else requires authentication
@@ -64,14 +69,19 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        // 🔥 TEMPORARY: allow everything
-        config.setAllowedOriginPatterns(List.of("*"));
+        // Allow Railway + localhost
+        config.setAllowedOriginPatterns(List.of(
+                "http://localhost:5173",
+                "https://*.up.railway.app"
+        ));
+
         config.setAllowedMethods(List.of("*"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(false);   // important when using "*"
+        config.setAllowCredentials(false); // IMPORTANT
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
+
         source.registerCorsConfiguration("/**", config);
 
         return source;
