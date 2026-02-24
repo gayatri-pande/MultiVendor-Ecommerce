@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     api
-      .get(`/products/${id}`)
+      .get(`/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .finally(() => setLoading(false));
   }, [id]);

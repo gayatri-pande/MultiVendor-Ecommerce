@@ -13,10 +13,10 @@ const VendorOrderRow = ({ item, refreshOrders }) => {
 
     try {
       await api.put(
-        `/vendor/orders/${item.orderItemId}/status`,
+        `/api/vendor/orders/${item.orderItemId}/status`,
         { status: nextStatus }
       );
-      refreshOrders(); // 🔄 reload list
+      refreshOrders(); 
     } catch (err) {
       alert("Failed to update order status");
     }

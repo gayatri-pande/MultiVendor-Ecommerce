@@ -3,8 +3,8 @@ import api from "../../services/api";
 const VendorApprovalRow = ({ vendor, refreshVendors }) => {
   const approveVendor = async () => {
     try {
-      await api.put(`/admin/vendors/${vendor.id}/approve`);
-      refreshVendors(); // 🔄 reload list
+      await api.put(`/api/admin/vendors/${vendor.id}/approve`);
+      refreshVendors(); 
     } catch (err) {
       alert("Failed to approve vendor");
     }

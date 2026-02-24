@@ -11,7 +11,7 @@ export const VendorProvider = ({ children }) => {
 
   const fetchVendorStatus = async () => {
     try {
-      const res = await api.get("/vendors/me");
+      const res = await api.get("/api/vendors/me");
       setVendor(res.data);
     } catch {
       setVendor(null);

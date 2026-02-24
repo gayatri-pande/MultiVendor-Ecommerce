@@ -6,13 +6,13 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]); // ✅ ADD
+  const [categories, setCategories] = useState([]); 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 🔹 Load products
+  //  Load products
   useEffect(() => {
     getAllProducts()
       .then((data) => setProducts(data))
@@ -20,7 +20,7 @@ export const ProductProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }, []);
 
-  // 🔹 Load categories
+  // Load categories
   useEffect(() => {
     api.get("/categories")
       .then((res) => setCategories(res.data))
@@ -43,7 +43,7 @@ export const ProductProvider = ({ children }) => {
       value={{
         products,
         filteredProducts,
-        categories,              // ✅ PROVIDE
+        categories,             
         searchTerm,
         setSearchTerm,
         selectedCategory,

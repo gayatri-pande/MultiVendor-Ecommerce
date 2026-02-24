@@ -21,7 +21,7 @@ const AddProduct = () => {
 
   
   useEffect(() => {
-    api.get("/categories")
+    api.get("api/categories")
       .then(res => setCategories(res.data))
       .catch(() => setCategories([]));
   }, []);
@@ -51,7 +51,7 @@ const AddProduct = () => {
       setLoading(true);
       setError("");
 
-      await api.post("/products/add", formData, {
+      await api.post("/api/products/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
