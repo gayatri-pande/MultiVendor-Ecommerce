@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
 
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+           
 
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
