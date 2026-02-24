@@ -42,7 +42,9 @@ public class SecurityConfig {
                         "/api/auth/**",
                         "/api/products/**",
                         "/api/categories/**",
-                        "/images/**"
+                        "/images/**",
+                        "/api/users/**"
+                 
                 ).permitAll()
 
                 // Everything else requires authentication
