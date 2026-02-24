@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.http.HttpMethod;
 
 @Configuration
 public class SecurityConfig {
@@ -32,8 +33,9 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
 
             .authorizeHttpRequests(auth -> auth
+            		 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-            	    // 🔓 PUBLIC ENDPOINTS
+            	    //  PUBLIC ENDPOINTS
             	    .requestMatchers(
             	        "/api/auth/**",
             	        "/api/products",
@@ -42,16 +44,16 @@ public class SecurityConfig {
             	        "/images/**"
             	    ).permitAll()
 
-            	    // 👤 AUTHENTICATED USERS
+            	    //  AUTHENTICATED USERS
             	    .requestMatchers(
             	        "/api/vendors/**",
             	        "/api/orders/**"
             	    ).authenticated()
 
-            	    // 🧑‍💼 VENDOR ONLY
+            	    // ‍ VENDOR ONLY
             	    .requestMatchers("/api/vendor/**").hasAuthority("VENDOR")
 
-            	    // 🛠 ADMIN ONLY
+            	    //  ADMIN ONLY
             	    .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
 
             	    // Everything else
