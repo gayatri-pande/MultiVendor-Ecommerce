@@ -21,7 +21,7 @@ const AddProduct = () => {
 
   
   useEffect(() => {
-    api.get("api/categories")
+    api.get("/api/categories")
       .then(res => setCategories(res.data))
       .catch(() => setCategories([]));
   }, []);

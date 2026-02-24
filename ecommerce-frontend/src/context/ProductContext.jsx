@@ -22,7 +22,7 @@ export const ProductProvider = ({ children }) => {
 
   // Load categories
   useEffect(() => {
-    api.get("/categories")
+    api.get("/api/categories")
       .then((res) => setCategories(res.data))
       .catch(() => setCategories([]));
   }, []);
