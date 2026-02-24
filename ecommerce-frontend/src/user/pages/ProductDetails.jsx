@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [imgError, setImgError] = useState(false);
 
-  const backendUrl = "http://localhost:8080";
+  const backendUrl = "https://multivendor-ecommerce-production.up.railway.app/api/products";
 
   useEffect(() => {
     api
