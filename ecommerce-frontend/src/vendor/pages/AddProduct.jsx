@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import ImageUpload from "../components/ImageUpload";
-import "../styles/addProduct.css";
+import "../styles/AddProduct.css";
 import { useNavigate } from "react-router-dom";
 import { useVendor } from "../../context/VendorContext";
 

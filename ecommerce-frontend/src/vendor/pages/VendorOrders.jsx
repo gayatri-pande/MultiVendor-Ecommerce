@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import VendorOrderRow from "../components/VendorOrderRow";
-import "../styles/vendorOrders.css";
+import "../styles/VendorOrders.css";
 
 const VendorOrders = () => {
   const [orders, setOrders] = useState([]);
