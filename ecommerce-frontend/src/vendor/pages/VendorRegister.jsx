@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { useAuth } from "../../context/AuthContext";
 import { useVendor } from "../../context/VendorContext";
-import "../styles/vendorRegister.css";
+import "../styles/VendorRegister.css";
 
 const VendorRegister = () => {
   const [shopName, setShopName] = useState("");
