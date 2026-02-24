@@ -5,7 +5,7 @@ import { useCart } from "../../context/CartContext";
 import "../styles/product.css";
 
 const ProductCard = ({ product }) => {
-  const backendUrl = "http://localhost:8080";
+  const backendUrl = "https://multivendor-ecommerce-1-arrg.onrender.com";
   const { addToCart } = useCart();
 
   const [loaded, setLoaded] = useState(false);

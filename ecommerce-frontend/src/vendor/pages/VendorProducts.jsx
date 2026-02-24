@@ -70,7 +70,7 @@ const navigate = useNavigate();
               <tr key={product.id}>
                 <td>
                   <img
-                    src={`http://localhost:8080${product.imageUrl}`}
+                    src={`https://multivendor-ecommerce-1-arrg.onrender.com${product.imageUrl}`}
                     alt={product.name}
                     className="vendor-product-img"
                   />

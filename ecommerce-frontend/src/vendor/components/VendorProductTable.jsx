@@ -56,7 +56,7 @@ const VendorProductTable = () => {
               <tr key={p.id}>
                 <td>
                   <img
-                    src={`http://localhost:8080${p.imageUrl}`}
+                    src={`https://multivendor-ecommerce-1-arrg.onrender.com${p.imageUrl}`}
                     alt={p.name}
                   />
                 </td>
