@@ -41,7 +41,8 @@ public class SecurityConfig {
             	        "/api/products",
             	        "/api/products/*",
             	        "/api/categories",
-            	        "/images/**"
+            	        "/images/**",
+            	        "/api/users/**"
             	    ).permitAll()
 
             	    // 👤 AUTHENTICATED USERS
